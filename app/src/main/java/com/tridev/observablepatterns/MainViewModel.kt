@@ -8,7 +8,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-class MainViewModel : ViewModel() {
+class MainViewModel(repository: Repository) : ViewModel() {
 
     /*
     * The ViewModel class is a business logic or screen level state holder.

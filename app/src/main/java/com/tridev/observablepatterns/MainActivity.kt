@@ -18,7 +18,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
-        mainViewModel=ViewModelProvider(this).get(MainViewModel::class.java)
+        val repository = Repository()
+        val viewModelProviderFactory = ViewModelProviderFactory(repository)
+        mainViewModel = ViewModelProvider(this, viewModelProviderFactory)[MainViewModel::class.java]
 
         mBinding.btLivedata.setOnClickListener {
             mainViewModel.triggerLiveData()
